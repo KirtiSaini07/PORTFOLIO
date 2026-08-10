@@ -1,0 +1,17 @@
+/* Minimal reset since App.jsx handles its own styles via styled-components/style tag */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure html/body take up full height if needed */
+html, body, #root {
+  min-height: 100vh;
+}
