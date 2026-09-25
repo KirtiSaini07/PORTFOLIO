@@ -18,20 +18,20 @@ const Linkedin = ({ size = 24, ...props }) => (
 
 /* ---------------------------------------------------------
    Design tokens (see design plan):
-   bg      #FFF1F7  blush
+   bg      #FDF2F8  rose 50
    surface #FFFFFF
-   ink     #2B1830  deep plum-black
-   pink    #FF4FA3  primary accent
-   violet  #7C5CFA  secondary whimsy accent
-   butter  #FFD166  pop / sparkle highlight
-   mint    #99F2C8  extra whimsical accent
-   Display: Fraunces (wonky italic for whimsy)
-   Body: Space Grotesk
-   Mono: IBM Plex Mono (labels, tags — echoes Kirti's Nexus UI)
+   ink     #4C1D95  violet 900
+   primary #DB2777  pink 600
+   accent1 #F43F5E  rose 500
+   accent2 #D946EF  fuchsia 500
+   accent3 #8B5CF6  violet 500
+   Display: Space Grotesk (techy but clean)
+   Body: Inter (professional)
+   Mono: IBM Plex Mono
 --------------------------------------------------------- */
 
 const FONT_IMPORT = `
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 `;
 
 const PROJECTS = [
@@ -42,7 +42,7 @@ const PROJECTS = [
     blurb:
       "An AI-powered mock interview platform. Upload a resume, it parses it, predicts your domain, and spins up a tailored interview on the spot.",
     stack: ["React", "FastAPI", "Scikit-Learn", "Gemini API", "pdfplumber"],
-    accent: "pink",
+    accent: "primary",
     url: "https://github.com/KirtiSaini07/Mockstar"
   },
   {
@@ -50,9 +50,9 @@ const PROJECTS = [
     tag: "CLI tool",
     rotate: 3,
     blurb:
-      "A friendly command-line companion for logging meals and calories, with running totals and daily averages.",
+      "This Daily Calorie Tracker CLI Tool is an easy-to-use Python project that assists users in recording their daily caloric intake and meals. Users can calculate their total and average calories and compare them to their daily calorie limit.",
     stack: ["Python"],
-    accent: "violet",
+    accent: "accent1",
     url: "https://github.com/KirtiSaini07/Daily-Calorie-Tracker-CLI-Tool"
   },
   {
@@ -62,7 +62,7 @@ const PROJECTS = [
     blurb:
       "Crunches student grade data into something actually readable — built while leaning hard into data-science fundamentals.",
     stack: ["Python", "pandas"],
-    accent: "butter",
+    accent: "accent2",
     url: "https://github.com/KirtiSaini07/Gradebook-Analyzer"
   },
   {
@@ -72,14 +72,35 @@ const PROJECTS = [
     blurb:
       "A structured system for tracking books, members, and checkouts — the kind of project that teaches you to respect a schema.",
     stack: ["Python", "SQL"],
-    accent: "mint",
+    accent: "accent3",
     url: "https://github.com/KirtiSaini07/Library-Management-System"
+  },
+  {
+    title: "Smart Event Dashboard",
+    tag: "dashboard",
+    rotate: -2,
+    blurb:
+      "An interactive dashboard for managing, tracking, and visualizing event information and activities.",
+    stack: ["JavaScript", "HTML", "CSS"],
+    accent: "primary",
+    url: "https://github.com/KirtiSaini07/Smart-Event-Dashboard"
+  },
+  {
+    title: "Student Scoreboard",
+    tag: "tracker",
+    rotate: 2,
+    blurb:
+      "A student performance tracker for managing scores, results, and academic progress.",
+    stack: ["JavaScript", "HTML", "CSS"],
+    accent: "accent2",
+    url: "https://github.com/KirtiSaini07/Student-Scoreboard"
   },
 ];
 
 const STACK = [
-  "JavaScript", "Python", "React", "FastAPI", "SQL", "Tailwind CSS",
-  "Vite", "pandas", "NumPy", "PostgreSQL", "MySQL", "Git",
+  "JavaScript", "Python", "HTML5", "CSS3", "SQL", "React", "FastAPI", "Tailwind CSS",
+  "Bootstrap", "Vite", "pandas", "NumPy", "PostgreSQL", "MySQL", "Netlify", "Git",
+  "GitHub", "VS Code", "Figma"
 ];
 
 function useReveal() {
@@ -141,7 +162,7 @@ function Sparkle({ style }) {
       style={{
         position: "absolute",
         fontSize: 18,
-        color: "var(--butter)",
+        color: "var(--accent1)",
         animation: "sparkle 1.5s ease-in-out infinite",
         pointerEvents: "none",
         zIndex: 10,
@@ -156,19 +177,19 @@ function Sparkle({ style }) {
 function Marquee() {
   return (
     <div style={{
-      width: '100%', overflow: 'hidden', background: 'var(--butter)', 
-      borderTop: '3px solid var(--ink)', borderBottom: '3px solid var(--ink)',
+      width: '100%', overflow: 'hidden', background: 'var(--primary)',
+      borderTop: '2px solid var(--ink)', borderBottom: '2px solid var(--ink)',
       padding: '12px 0', display: 'flex', whiteSpace: 'nowrap', position: 'relative', zIndex: 10,
-      transform: 'rotate(-1deg) scale(1.05)', margin: '40px 0'
+      margin: '40px 0'
     }}>
       <div style={{
-        animation: 'scrollText 20s linear infinite', 
-        fontFamily: "'Fraunces', serif", fontStyle: 'italic', fontSize: '24px', fontWeight: 800, color: 'var(--ink)',
-        display: 'flex', gap: '30px'
+        animation: 'scrollText 25s linear infinite',
+        fontFamily: "'Space Grotesk', sans-serif", fontSize: '20px', fontWeight: 600, color: 'var(--surface)',
+        display: 'flex', gap: '30px', letterSpacing: '1px'
       }}>
         {Array(8).fill(null).map((_, i) => (
           <React.Fragment key={i}>
-            <span>✨ TURNING DATA INTO INTELLIGENT EXPERIENCES ✨</span>
+            <span>✦ TURNING DATA INTO INTELLIGENT EXPERIENCES ✦</span>
             <span>✦ BRIDGING LOGIC & DESIGN ✦</span>
           </React.Fragment>
         ))}
@@ -198,9 +219,9 @@ function ProjectCard({ p, index }) {
           borderRadius: 22,
           padding: "28px 26px",
           border: "3px solid var(--ink)",
-          boxShadow: hover ? `12px 12px 0 var(--ink)` : "5px 5px 0 var(--ink)",
+          boxShadow: hover ? `8px 8px 0 var(--ink)` : "4px 4px 0 var(--ink)",
           opacity: visible ? 1 : 0,
-          transform: `translateY(${visible ? 0 : 30}px) rotate(${hover ? (p.rotate > 0 ? p.rotate + 2 : p.rotate - 2) : p.rotate}deg) translate(${hover ? "-6px, -10px" : "0,0"})`,
+          transform: `translateY(${visible ? 0 : 30}px) translate(${hover ? "-4px, -6px" : "0,0"})`,
           transition: "opacity .6s ease, box-shadow .3s cubic-bezier(0.34, 1.56, 0.64, 1), transform .3s cubic-bezier(0.34, 1.56, 0.64, 1)",
           transitionDelay: visible && !hover ? `${(index % 4) * 0.08}s` : "0s",
           cursor: "pointer",
@@ -229,12 +250,12 @@ function ProjectCard({ p, index }) {
           <ArrowUpRight size={14} />
         </div>
         <h3 style={{
-          fontFamily: "'Fraunces', serif", fontWeight: 800, fontSize: 28,
+          fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 24,
           margin: "0 0 12px", color: "var(--ink)",
         }}>
           {p.title}
         </h3>
-        <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 16, lineHeight: 1.6, color: "#4a3b4e", margin: "0 0 20px", flex: 1, fontWeight: 500 }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, lineHeight: 1.6, color: "#475569", margin: "0 0 20px", flex: 1, fontWeight: 400 }}>
           {p.blurb}
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -243,7 +264,7 @@ function ProjectCard({ p, index }) {
               fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, fontWeight: 500,
               border: "2px dashed var(--ink)", borderRadius: 8,
               padding: "4px 10px", color: "var(--ink)",
-              background: hover && i % 2 === 0 ? "var(--pink)" : (hover ? "var(--butter)" : "transparent"),
+              background: hover && i % 2 === 0 ? "var(--accent1)" : (hover ? "var(--accent2)" : "transparent"),
               transition: "background 0.3s ease",
             }}>
               {s}
@@ -264,11 +285,11 @@ function MagicCursor() {
     const updateCursor = (e) => setPos({ x: e.clientX, y: e.clientY });
     const handleMouseDown = () => setIsClicking(true);
     const handleMouseUp = () => setIsClicking(false);
-    
+
     window.addEventListener("mousemove", updateCursor);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
-    
+
     return () => {
       window.removeEventListener("mousemove", updateCursor);
       window.removeEventListener("mousedown", handleMouseDown);
@@ -289,7 +310,7 @@ function MagicCursor() {
         width: '24px', height: '24px',
         border: '3px solid var(--ink)',
         borderRadius: '50%',
-        background: 'var(--butter)',
+        background: 'var(--accent1)',
         boxShadow: '2px 2px 0 var(--ink)',
         position: 'relative'
       }}>
@@ -302,7 +323,7 @@ function MagicCursor() {
 export default function Portfolio() {
   const [heroVisible, setHeroVisible] = useState(false);
   const [dynamicRepos, setDynamicRepos] = useState([]);
-  
+
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 80); return () => clearTimeout(t); }, []);
 
   useEffect(() => {
@@ -311,28 +332,30 @@ export default function Portfolio() {
       .then(data => {
         if (Array.isArray(data)) {
           const ignoreList = [
-            "mockstar", "nexus", "daily-calorie-tracker", "daily-calorie-tracker-cli-tool", 
+            "mockstar", "nexus", "daily-calorie-tracker", "daily-calorie-tracker-cli-tool",
             "gradebook-analyzer", "library-management-system", "kirtisaini07",
-            "assg", "capstone", "endterm", "practical", "campus-energy"
+            "assg", "capstone", "endterm", "practical", "campus-energy",
+            "nand2tetris", "smart-event-dashboard", "student-scoreboard",
+            "portfolio", "quiz"
           ];
-          
+
           const filtered = data
             .filter(repo => !repo.fork)
             .filter(repo => !ignoreList.some(ignore => repo.name.toLowerCase().includes(ignore)))
             .sort((a, b) => b.stargazers_count - a.stargazers_count)
             .map((repo, i) => {
-              const accents = ["pink", "violet", "butter", "mint"];
+              const accents = ["primary", "accent1", "accent2", "accent3"];
               return {
                 title: repo.name.replace(/-/g, ' '),
                 tag: "project",
-                rotate: (i % 2 === 0 ? 1 : -1) * (2 + (i % 4)),
+                rotate: 0,
                 blurb: repo.description || "Another cool project cooked up with code.",
                 stack: repo.language ? [repo.language] : ["Code"],
                 accent: accents[i % accents.length],
                 url: repo.html_url
               };
             });
-            
+
           setDynamicRepos(filtered);
         }
       })
@@ -344,7 +367,7 @@ export default function Portfolio() {
 
   return (
     <div style={{
-      fontFamily: "'Space Grotesk', sans-serif",
+      fontFamily: "'Inter', sans-serif",
       background: "var(--bg)",
       color: "var(--ink)",
       minHeight: "100vh",
@@ -356,13 +379,13 @@ export default function Portfolio() {
       <style>{`
         ${FONT_IMPORT}
         :root {
-          --bg: #FFF1F7;
+          --bg: #FDF2F8;
           --surface: #FFFFFF;
-          --ink: #2B1830;
-          --pink: #FF4FA3;
-          --violet: #A78BFA;
-          --butter: #FFD166;
-          --mint: #99F2C8;
+          --ink: #4C1D95;
+          --primary: #DB2777;
+          --accent1: #F43F5E;
+          --accent2: #D946EF;
+          --accent3: #8B5CF6;
         }
         * { box-sizing: border-box; cursor: none !important; }
         @keyframes float {
@@ -390,20 +413,20 @@ export default function Portfolio() {
           0%, 100% { transform: rotate(8deg) translateY(0); }
           50% { transform: rotate(12deg) translateY(-15px); }
         }
-        a.pill:hover { transform: translate(-3px,-3px) scale(1.05); box-shadow: 8px 8px 0 var(--ink); }
+        a.pill:hover { transform: translate(-2px,-2px) scale(1.02); box-shadow: 6px 6px 0 var(--ink); }
         .navlink { position: relative; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; }
-        .navlink:hover { background: var(--pink); color: white !important; }
+        .navlink:hover { background: var(--primary); color: white !important; }
         @media (prefers-reduced-motion: reduce) {
           * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
         }
-        ::selection { background: var(--butter); color: var(--ink); }
+        ::selection { background: var(--accent1); color: var(--ink); }
       `}</style>
 
       {/* ambient background blobs */}
-      <Blob style={{ top: -80, left: -100 }} colorVar="--pink" size={360} duration={20} />
-      <Blob style={{ top: 260, right: -120 }} colorVar="--violet" size={300} duration={26} delay={2} />
-      <Blob style={{ bottom: -60, left: "40%" }} colorVar="--mint" size={260} duration={18} delay={1} />
-      <Blob style={{ top: "40%", right: "10%" }} colorVar="--butter" size={220} duration={15} delay={3} />
+      <Blob style={{ top: -80, left: -100 }} colorVar="--primary" size={360} duration={20} />
+      <Blob style={{ top: 260, right: -120 }} colorVar="--accent1" size={300} duration={26} delay={2} />
+      <Blob style={{ bottom: -60, left: "40%" }} colorVar="--accent2" size={260} duration={18} delay={1} />
+      <Blob style={{ top: "40%", right: "10%" }} colorVar="--accent3" size={220} duration={15} delay={3} />
 
       {/* NAV */}
       <nav style={{
@@ -412,8 +435,8 @@ export default function Portfolio() {
         padding: "18px 6vw", backdropFilter: "blur(12px)",
         background: "rgba(255,241,247,0.85)", borderBottom: "3px solid var(--ink)",
       }}>
-        <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: 24 }}>
-          kirti<span style={{ color: "var(--pink)" }}>.</span>saini
+        <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 24 }}>
+          kirti<span style={{ color: "var(--primary)" }}>.</span>saini
         </span>
         <div style={{ display: "flex", gap: 16, fontSize: 15, fontFamily: "'IBM Plex Mono', monospace", fontWeight: 600 }}>
           <a href="#work" className="navlink" style={{ color: "var(--ink)", textDecoration: "none" }}>work</a>
@@ -434,13 +457,13 @@ export default function Portfolio() {
             border: "2px solid var(--ink)", borderRadius: 999, padding: "6px 16px",
             marginBottom: 32, background: "var(--surface)", boxShadow: "3px 3px 0 var(--ink)"
           }}>
-            <Sparkles size={16} color="var(--pink)" /> B.Tech CSE · Data Science · K.R. Mangalam
+            <Sparkles size={16} color="var(--primary)" /> B.Tech CSE · Data Science · K.R. Mangalam
           </div>
         </Reveal>
 
         <div style={{ position: "relative" }}>
           <h1 style={{
-            fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: "clamp(48px, 9vw, 100px)",
+            fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(48px, 8vw, 80px)",
             lineHeight: 1.05, margin: "0 0 24px", maxWidth: "800px",
             opacity: heroVisible ? 1 : 0,
             transform: heroVisible ? "translateY(0)" : "translateY(26px)",
@@ -449,25 +472,25 @@ export default function Portfolio() {
             Hey, I'm {name.split(" ")[0]}
             <span style={{ display: "inline-block", animation: "bob 2.5s ease-in-out infinite", marginLeft: 12 }}>✌️</span>
             <br />
-            <span style={{ fontStyle: "italic", fontWeight: 700, color: "var(--pink)", position: 'relative' }}>
+            <span style={{ color: "var(--primary)", position: 'relative' }}>
               Turning complex data into intuitive interfaces.
               <Sparkle style={{ top: -10, right: -30, fontSize: 24, animationDelay: "0.5s" }} />
             </span>
           </h1>
 
           {/* Whimsical Polarid Avatar */}
-          <div style={{ 
-            position: 'absolute', right: '0', top: '-20px', 
-            border: '4px solid var(--ink)', background: 'var(--surface)', 
-            padding: '12px 12px 40px 12px', 
-            boxShadow: '10px 10px 0 var(--butter)', width: 'clamp(150px, 15vw, 220px)', zIndex: 2,
+          <div style={{
+            position: 'absolute', right: '0', top: '-20px',
+            border: '4px solid var(--ink)', background: 'var(--surface)',
+            padding: '12px 12px 40px 12px',
+            boxShadow: '10px 10px 0 var(--accent1)', width: 'clamp(150px, 15vw, 220px)', zIndex: 2,
             animation: 'floatPic 6s ease-in-out infinite',
             display: 'none' // Hide on very small screens, use CSS in style tag ideally but inline works if we just do a media query. We will just let it be absolute and rely on the container width.
           }} className="polaroid">
-            <img src="https://avatars.githubusercontent.com/u/234885469?v=4" alt="Kirti" style={{width: '100%', border: '3px solid var(--ink)'}}/>
+            <img src="https://avatars.githubusercontent.com/u/234885469?v=4" alt="Kirti" style={{ width: '100%', border: '3px solid var(--ink)' }} />
             <div style={{
-              fontFamily: "'Fraunces', serif", fontStyle: 'italic', textAlign: 'center', 
-              position: 'absolute', bottom: '8px', left: 0, right: 0, fontWeight: 800, fontSize: '18px'
+              fontFamily: "'Space Grotesk', sans-serif", textAlign: 'center',
+              position: 'absolute', bottom: '10px', left: 0, right: 0, fontWeight: 600, fontSize: '18px'
             }}>me! ✨</div>
           </div>
           <style>{`
@@ -478,10 +501,10 @@ export default function Portfolio() {
         </div>
 
         <Reveal delay={0.15}>
-          <p style={{ fontSize: 20, lineHeight: 1.6, maxWidth: 620, color: "#4a3b4e", margin: "0 0 40px", fontWeight: 500 }}>
-            I engineer scalable systems, leverage machine learning to make sense of messy data, 
+          <p style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 620, color: "#475569", margin: "0 0 40px", fontWeight: 400 }}>
+            I engineer scalable systems, leverage machine learning to make sense of messy data,
             and wrap it all in clean, dynamic UIs. Currently deep in building{" "}
-            <strong style={{ color: "var(--ink)", background: "var(--mint)", padding: "0 6px", borderRadius: "4px" }}>Mockstar</strong>.
+            <strong style={{ color: "var(--ink)", background: "var(--accent2)", padding: "0 6px", borderRadius: "4px" }}>Mockstar</strong>.
           </p>
         </Reveal>
 
@@ -489,9 +512,9 @@ export default function Portfolio() {
           <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
             <a href="#work" className="pill" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
-              background: "var(--pink)", color: "#fff", textDecoration: "none",
+              background: "var(--primary)", color: "#fff", textDecoration: "none",
               padding: "14px 28px", borderRadius: 999, border: "3px solid var(--ink)",
-              fontWeight: 700, fontSize: 16, boxShadow: "5px 5px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
+              fontWeight: 600, fontSize: 16, boxShadow: "5px 5px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
             }}>
               See my work <ArrowUpRight size={18} />
             </a>
@@ -499,7 +522,7 @@ export default function Portfolio() {
               display: "inline-flex", alignItems: "center", gap: 8,
               background: "var(--surface)", color: "var(--ink)", textDecoration: "none",
               padding: "14px 28px", borderRadius: 999, border: "3px solid var(--ink)",
-              fontWeight: 700, fontSize: 16, boxShadow: "5px 5px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
+              fontWeight: 600, fontSize: 16, boxShadow: "5px 5px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
             }}>
               <Github size={18} /> GitHub
             </a>
@@ -513,7 +536,7 @@ export default function Portfolio() {
       <section id="work" style={{ position: "relative", zIndex: 5, padding: "8vh 6vw 12vh" }}>
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 50 }}>
-            <h2 style={{ fontFamily: "'Fraunces', serif", fontStyle: "italic", fontWeight: 800, fontSize: "clamp(32px, 5vw, 48px)", margin: 0 }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(28px, 5vw, 40px)", margin: 0 }}>
               things I've made
             </h2>
             <span style={{ height: 3, flex: 1, background: "var(--ink)", opacity: 1, borderRadius: "2px" }} />
@@ -535,16 +558,16 @@ export default function Portfolio() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 60, maxWidth: 1200, margin: "0 auto" }}>
           <Reveal>
             <div style={{ position: "relative" }}>
-              <Sparkle style={{ top: -20, left: -20, fontSize: 24, color: "var(--pink)" }} />
-              <h2 style={{ fontFamily: "'Fraunces', serif", fontStyle: "italic", fontWeight: 800, fontSize: 40, margin: "0 0 24px" }}>
+              <Sparkle style={{ top: -20, left: -20, fontSize: 24, color: "var(--primary)" }} />
+              <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 36, margin: "0 0 24px" }}>
                 a little about me
               </h2>
-              <p style={{ fontSize: 18, lineHeight: 1.7, color: "#4a3b4e", marginBottom: 18, fontWeight: 500 }}>
-                I'm a Computer Science student specializing in Data Science. I enjoy bridging the gap between raw data 
-                and user-friendly applications by building APIs, experimenting with AI/ML, and designing dynamic frontends. 
-                Currently deep in building <strong style={{ color: "var(--ink)", borderBottom: "2px solid var(--violet)" }}>Mockstar</strong>.
+              <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", marginBottom: 18, fontWeight: 400 }}>
+                I'm a Computer Science student specializing in Data Science. I enjoy bridging the gap between raw data
+                and user-friendly applications by building APIs, experimenting with AI/ML, and designing dynamic frontends.
+                Currently deep in building <strong style={{ color: "var(--ink)", borderBottom: "2px solid var(--accent1)" }}>Mockstar</strong>.
               </p>
-              <p style={{ fontSize: 18, lineHeight: 1.7, color: "#4a3b4e", fontWeight: 500 }}>
+              <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", fontWeight: 400 }}>
                 I care about clean UI and thoughtful branding as much as I care about the logic underneath —
                 a project isn't finished until both feel right. 🪄
               </p>
@@ -557,20 +580,20 @@ export default function Portfolio() {
                 textTransform: "uppercase", color: "var(--ink)", marginBottom: 24, fontWeight: 700,
                 display: "flex", alignItems: "center", gap: 10,
               }}>
-                <Code2 size={20} color="var(--violet)"/> toolkit
+                <Code2 size={20} color="var(--primary)" /> toolkit
               </h3>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
                 {STACK.map((s, i) => (
                   <span key={s} style={{
                     fontFamily: "'IBM Plex Mono', monospace", fontSize: 14, fontWeight: 600,
                     border: "2px solid var(--ink)", borderRadius: 999,
-                    padding: "8px 16px", background: i % 4 === 0 ? "var(--butter)" : i % 4 === 1 ? "var(--pink)" : i % 4 === 2 ? "var(--violet)" : "var(--surface)",
+                    padding: "8px 16px", background: i % 4 === 0 ? "var(--accent1)" : i % 4 === 1 ? "var(--primary)" : i % 4 === 2 ? "var(--accent3)" : "var(--surface)",
                     color: i % 4 === 1 || i % 4 === 2 ? "white" : "var(--ink)",
                     boxShadow: "2px 2px 0 var(--ink)", transition: "transform 0.2s",
                     cursor: "pointer",
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-4px)"}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-4px)"}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
                   >
                     {s}
                   </span>
@@ -583,41 +606,41 @@ export default function Portfolio() {
 
       {/* CONTACT */}
       <footer id="contact" style={{ position: "relative", zIndex: 5, padding: "12vh 6vw 8vh", textAlign: "center", overflow: 'hidden' }}>
-        <Blob style={{ top: -100, right: "20%" }} colorVar="--mint" size={200} duration={12} delay={1} />
+        <Blob style={{ top: -100, right: "20%" }} colorVar="--accent2" size={200} duration={12} delay={1} />
         <Reveal>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: "clamp(36px, 6vw, 64px)", margin: "0 0 20px" }}>
-            let's make something <span style={{ fontStyle: "italic", color: "var(--violet)", position: 'relative' }}>
+          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(32px, 5vw, 56px)", margin: "0 0 20px" }}>
+            let's make something <span style={{ color: "var(--primary)", position: 'relative' }}>
               together
               <Sparkle style={{ top: -10, right: -20 }} />
             </span>
           </h2>
-          <p style={{ color: "#4a3b4e", marginBottom: 40, fontSize: 20, fontWeight: 500 }}>Always up for talking projects, data science, or good UI.</p>
+          <p style={{ color: "#475569", marginBottom: 40, fontSize: 18, fontWeight: 400 }}>Always up for talking projects, data science, or good UI.</p>
           <div style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="mailto:sainikirti.2007@gmail.com" className="pill" style={{
               display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none",
               background: "var(--ink)", color: "var(--bg)", padding: "16px 32px", borderRadius: 999,
-              border: "3px solid var(--ink)", fontWeight: 700, fontSize: 18, boxShadow: "6px 6px 0 var(--pink)", transition: "transform .2s, box-shadow .2s",
+              border: "3px solid var(--ink)", fontWeight: 600, fontSize: 16, boxShadow: "4px 4px 0 var(--primary)", transition: "transform .2s, box-shadow .2s",
             }}>
               <Mail size={20} /> Email
             </a>
             <a href="https://github.com/KirtiSaini07" target="_blank" rel="noreferrer" className="pill" style={{
               display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none",
               background: "var(--surface)", color: "var(--ink)", padding: "16px 32px", borderRadius: 999,
-              border: "3px solid var(--ink)", fontWeight: 700, fontSize: 18, boxShadow: "6px 6px 0 var(--butter)", transition: "transform .2s, box-shadow .2s",
+              border: "3px solid var(--ink)", fontWeight: 600, fontSize: 16, boxShadow: "4px 4px 0 var(--accent1)", transition: "transform .2s, box-shadow .2s",
             }}>
               <Github size={20} /> GitHub
             </a>
             <a href="https://www.linkedin.com/in/kirti-saini-4bb01b3a8" target="_blank" rel="noreferrer" className="pill" style={{
               display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none",
-              background: "var(--violet)", color: "var(--ink)", padding: "16px 32px", borderRadius: 999,
-              border: "3px solid var(--ink)", fontWeight: 700, fontSize: 18, boxShadow: "6px 6px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
+              background: "var(--accent1)", color: "var(--ink)", padding: "16px 32px", borderRadius: 999,
+              border: "3px solid var(--ink)", fontWeight: 600, fontSize: 16, boxShadow: "4px 4px 0 var(--ink)", transition: "transform .2s, box-shadow .2s",
             }}>
               <Linkedin size={20} /> LinkedIn
             </a>
           </div>
         </Reveal>
-        <p style={{ marginTop: 80, fontSize: 14, fontFamily: "'IBM Plex Mono', monospace", color: "var(--ink)", fontWeight: 600 }}>
-          made with 💗 and a <span style={{ fontStyle: 'italic', textDecoration: 'underline' }}>lot</span> of CSS
+        <p style={{ marginTop: 80, fontSize: 14, fontFamily: "'IBM Plex Mono', monospace", color: "var(--ink)", fontWeight: 500 }}>
+          made with 💛 and a lot of code
         </p>
       </footer>
     </div>
